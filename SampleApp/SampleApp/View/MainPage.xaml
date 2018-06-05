@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleApp.View.MainPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" x:Name="Add" Clicked="Add_Clicked"/>
+
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        
+        <ListView x:Name="LstView"  ItemSelected="LstView_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding FullName}">
+                        <TextCell.ContextActions>
+                            <MenuItem Text="Delete" CommandParameter="{Binding .}" IsDestructive="True" x:Name="Delete" Clicked="Delete_Clicked"/>
+                        </TextCell.ContextActions>
+                    </TextCell>
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
